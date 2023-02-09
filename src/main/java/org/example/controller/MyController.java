@@ -3,6 +3,7 @@ package org.example.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -23,10 +24,18 @@ public class MyController {
 //        return "show-emp-details-view";
 //    }
 
+//    @RequestMapping( "/showDetails" )
+//    public String showEmpDetails(HttpServletRequest request, Model model) {
+//        String employeeName = request.getParameter("employeeName");
+//        employeeName = "Mrs. " + employeeName;
+//        model.addAttribute("nameAttribute", employeeName);
+//
+//        return "show-emp-details-view";
+//    }
+
     @RequestMapping( "/showDetails" )
-    public String showEmpDetails(HttpServletRequest request, Model model) {
-        String employeeName = request.getParameter("employeeName");
-        employeeName = "Mrs. " + employeeName;
+    public String showEmpDetails(@RequestParam("employeeName") String employeeName, Model model) {
+        employeeName = "Mrs. " + employeeName + "!";
         model.addAttribute("nameAttribute", employeeName);
 
         return "show-emp-details-view";
