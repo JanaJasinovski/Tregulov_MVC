@@ -2,13 +2,25 @@ package org.example.controller;
 
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.HashMap;
 import java.util.Map;
 
 @Component
 public class Employee {
+
+    @Size(min = 2, message = "name must be min 2 symbols")
     private String name;
+
+    @NotBlank(message = "surname is required field")
     private String surname;
+
+    @Min(value = 500, message = "must be greater than 499")
+    @Max(value = 1000, message = "must be less than 1001")
     private Integer salary;
     private String department;
     private String carBrand;
@@ -17,6 +29,8 @@ public class Employee {
     private Map<String, String> departments;
     private Map<String, String> carBrands;
     private Map<String, String> languageMap;
+    @Pattern(regexp = "\\d{3}-\\d{2}-\\d{2}", message = "please user pattern XXX-XX-XX")
+    private String phoneNumber;
 
     public Employee() {
         departments = new HashMap<>();
@@ -114,6 +128,14 @@ public class Employee {
 
     public void setLanguageMap(Map<String, String> languageMap) {
         this.languageMap = languageMap;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
