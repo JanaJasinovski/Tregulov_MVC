@@ -11,28 +11,36 @@ public class Employee {
     private String surname;
     private Integer salary;
     private String department;
+    private String carBrand;
+    private String[] languages;
 
     private Map<String, String> departments;
-    private String carBrand;
     private Map<String, String> carBrands;
+    private Map<String, String> languageMap;
 
     public Employee() {
         departments = new HashMap<>();
-        departments.put("IT", "Information Technology");
+        departments.put("Information Technology", "IT");
         departments.put("HR", "Human Resources");
         departments.put("Sales", "Sales");
 
         carBrands = new HashMap<>();
-        carBrands.put("BMW","BMW");
+        carBrands.put("BMW", "BMW");
         carBrands.put("Audi", "Audi");
-        carBrands.put("Mercedes-Benz", "MB");
+        carBrands.put("Merceders-Benz", "MB");
+
+        languageMap = new HashMap<>();
+        languageMap.put("English", "EN");
+        languageMap.put("French", "FR");
+        languageMap.put("Deutch", "De");
     }
 
-    public Employee(String name, String surname, int salary, String department) {
+    public Employee(String name, String surname, Integer salary, String department, String carBrand) {
         this.name = name;
         this.surname = surname;
         this.salary = salary;
         this.department = department;
+        this.carBrand = carBrand;
     }
 
     public String getName() {
@@ -67,20 +75,21 @@ public class Employee {
         this.department = department;
     }
 
-    public Map<String, String> getDepartments() {
-        return departments;
-    }
-
-    public void setDepartments(Map<String, String> departments) {
-        this.departments = departments;
-    }
-
     public String getCarBrand() {
         return carBrand;
     }
 
     public void setCarBrand(String carBrand) {
         this.carBrand = carBrand;
+    }
+
+
+    public Map<String, String> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(Map<String, String> departments) {
+        this.departments = departments;
     }
 
     public Map<String, String> getCarBrands() {
@@ -91,6 +100,22 @@ public class Employee {
         this.carBrands = carBrands;
     }
 
+    public String[] getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(String[] languages) {
+        this.languages = languages;
+    }
+
+    public Map<String, String> getLanguageMap() {
+        return languageMap;
+    }
+
+    public void setLanguageMap(Map<String, String> languageMap) {
+        this.languageMap = languageMap;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -98,6 +123,7 @@ public class Employee {
                 ", surname='" + surname + '\'' +
                 ", salary=" + salary +
                 ", department='" + department + '\'' +
+                ", carBrand='" + carBrand + '\'' +
                 '}';
     }
 }

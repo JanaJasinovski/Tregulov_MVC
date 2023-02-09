@@ -1,7 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html lang="en">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport"
@@ -23,16 +22,18 @@
             Salary <form:input path="salary"/>
             <br>
             Department <form:select path="department">
-            <form:options items="${employee.departments}"/>
+
+                <form:option value="Information Technology" label="IT"/>
+                <form:option value="Human Resources" label="HR"/>
+                <form:option value="Sales" label="Sales"/>
             </form:select>
-            <br/>
+            <br>
             Which car do you want?
             <form:radiobuttons path="carBrand" items="${employee.carBrands}"/>
-            <br/>
-
+            <br>
+            Foreign Language(s)
+            <form:checkboxes path="languages" items="${employee.languageMap}"/>
             <input type="submit" value="OK">
         </form:form>
-
     </body>
-
 </html>
