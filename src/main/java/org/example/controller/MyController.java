@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
+@RequestMapping("/employee")
 public class MyController {
 
     @RequestMapping("/")
@@ -19,19 +20,6 @@ public class MyController {
     public String askEmployeeDetails() {
         return "ask-emp-details-view";
     }
-//    @RequestMapping("/showDetails")
-//    public String showEmpDetails() {
-//        return "show-emp-details-view";
-//    }
-
-//    @RequestMapping( "/showDetails" )
-//    public String showEmpDetails(HttpServletRequest request, Model model) {
-//        String employeeName = request.getParameter("employeeName");
-//        employeeName = "Mrs. " + employeeName;
-//        model.addAttribute("nameAttribute", employeeName);
-//
-//        return "show-emp-details-view";
-//    }
 
     @RequestMapping( "/showDetails" )
     public String showEmpDetails(@RequestParam("employeeName") String employeeName, Model model) {
