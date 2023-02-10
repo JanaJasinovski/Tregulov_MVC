@@ -36,11 +36,14 @@
             <br>
             Foreign Language(s)
             <form:checkboxes path="languages" items="${employee.languageMap}"/>
-            <input type="submit" value="OK">
             <br/>
-            Name <form:input path="phoneNumber"/>
+            Phone number <form:input path="phoneNumber"/>
             <form:errors path="phoneNumber"/>
             <br>
+            Email <form:input path="email"/>
+            <form:errors path="email"/>
+            <br>
+            <input type="submit" value="OK">
         </form:form>
     </body>
 </html>
